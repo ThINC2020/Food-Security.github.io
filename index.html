@@ -31,9 +31,8 @@
         <script src="data/IT_CONTOUR_10M_0.js"></script>
         <script src="data/TH_PROTECTED_AREAS_1.js"></script>
         <script src="data/Mapfeatures_2.js"></script>
-        <script src="data/Lots_3.js"></script>
-        <script src="data/MapLines_4.js"></script>
-        <script src="data/FoodProducers_5.js"></script>
+        <script src="data/MapLines_3.js"></script>
+        <script src="data/FoodProducers_4.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -42,7 +41,7 @@
         }
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[48.9733954168025,-123.7204736883344],[49.01051204250408,-123.61231561495225]]);
+        }).fitBounds([[48.96313336579815,-123.77113541914578],[49.02510370800759,-123.59059337125788]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -367,78 +366,7 @@
         });
         bounds_group.addLayer(layer_Mapfeatures_2);
         map.addLayer(layer_Mapfeatures_2);
-        function pop_Lots_3(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
-                },
-                mouseover: highlightFeature,
-            });
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['FoodSec'] !== null ? autolinker.link(feature.properties['FoodSec'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Title</strong><br />' + (feature.properties['Title'] !== null ? autolinker.link(feature.properties['Title'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Locations</strong><br />' + (feature.properties['Locations'] !== null ? autolinker.link(feature.properties['Locations'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Access</strong><br />' + (feature.properties['Access'] !== null ? autolinker.link(feature.properties['Access'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Products</strong><br />' + (feature.properties['Products'] !== null ? autolinker.link(feature.properties['Products'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Availabe</strong><br />' + (feature.properties['Availabe'] !== null ? autolinker.link(feature.properties['Availabe'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Assistance</strong><br />' + (feature.properties['Assistance'] !== null ? autolinker.link(feature.properties['Assistance'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Contact</strong><br />' + (feature.properties['Contact'] !== null ? autolinker.link(feature.properties['Contact'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            layer.bindPopup(popupContent, {maxHeight: 400});
-        }
-
-        function style_Lots_3_0() {
-            return {
-                pane: 'pane_Lots_3',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(207,191,183,1.0)',
-                interactive: false,
-            }
-        }
-        map.createPane('pane_Lots_3');
-        map.getPane('pane_Lots_3').style.zIndex = 403;
-        map.getPane('pane_Lots_3').style['mix-blend-mode'] = 'normal';
-        var layer_Lots_3 = new L.geoJson(json_Lots_3, {
-            attribution: '',
-            interactive: false,
-            dataVar: 'json_Lots_3',
-            layerName: 'layer_Lots_3',
-            pane: 'pane_Lots_3',
-            onEachFeature: pop_Lots_3,
-            style: style_Lots_3_0,
-        });
-        bounds_group.addLayer(layer_Lots_3);
-        map.addLayer(layer_Lots_3);
-        function pop_MapLines_4(feature, layer) {
+        function pop_MapLines_3(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     if (typeof layer.closePopup == 'function') {
@@ -484,76 +412,76 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_MapLines_4_0(feature) {
+        function style_MapLines_3_0(feature) {
             switch(String(feature.properties['highway'])) {
                 case 'ferry':
                     return {
-                pane: 'pane_MapLines_4',
+                pane: 'pane_MapLines_3',
                 opacity: 1,
                 color: 'rgba(124,145,213,1.0)',
                 dashArray: '',
                 lineCap: 'square',
                 lineJoin: 'bevel',
-                weight: 2.0,
+                weight: 1.0,
                 fillOpacity: 0,
                 interactive: false,
             }
                     break;
                 case 'footway':
                     return {
-                pane: 'pane_MapLines_4',
+                pane: 'pane_MapLines_3',
                 opacity: 1,
                 color: 'rgba(127,68,39,1.0)',
                 dashArray: '',
                 lineCap: 'square',
                 lineJoin: 'bevel',
-                weight: 2.0,
+                weight: 1.0,
                 fillOpacity: 0,
                 interactive: false,
             }
                     break;
                 case 'residential':
                     return {
-                pane: 'pane_MapLines_4',
+                pane: 'pane_MapLines_3',
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
                 dashArray: '',
                 lineCap: 'square',
                 lineJoin: 'bevel',
-                weight: 2.0,
+                weight: 1.0,
                 fillOpacity: 0,
                 interactive: false,
             }
                     break;
                 case 'Private':
                     return {
-                pane: 'pane_MapLines_4',
+                pane: 'pane_MapLines_3',
                 opacity: 1,
                 color: 'rgba(119,119,119,1.0)',
                 dashArray: '',
                 lineCap: 'square',
                 lineJoin: 'bevel',
-                weight: 2.0,
+                weight: 1.0,
                 fillOpacity: 0,
                 interactive: false,
             }
                     break;
                 case 'Dock':
                     return {
-                pane: 'pane_MapLines_4',
+                pane: 'pane_MapLines_3',
                 opacity: 1,
                 color: 'rgba(11,110,127,1.0)',
                 dashArray: '',
                 lineCap: 'square',
                 lineJoin: 'bevel',
-                weight: 2.0,
+                weight: 1.0,
                 fillOpacity: 0,
                 interactive: false,
             }
                     break;
                 default:
                     return {
-                pane: 'pane_MapLines_4',
+                pane: 'pane_MapLines_3',
                 opacity: 1,
                 color: 'rgba(9,6,11,1.0)',
                 dashArray: '',
@@ -566,21 +494,21 @@
                     break;
             }
         }
-        map.createPane('pane_MapLines_4');
-        map.getPane('pane_MapLines_4').style.zIndex = 404;
-        map.getPane('pane_MapLines_4').style['mix-blend-mode'] = 'normal';
-        var layer_MapLines_4 = new L.geoJson(json_MapLines_4, {
+        map.createPane('pane_MapLines_3');
+        map.getPane('pane_MapLines_3').style.zIndex = 403;
+        map.getPane('pane_MapLines_3').style['mix-blend-mode'] = 'normal';
+        var layer_MapLines_3 = new L.geoJson(json_MapLines_3, {
             attribution: '',
             interactive: false,
-            dataVar: 'json_MapLines_4',
-            layerName: 'layer_MapLines_4',
-            pane: 'pane_MapLines_4',
-            onEachFeature: pop_MapLines_4,
-            style: style_MapLines_4_0,
+            dataVar: 'json_MapLines_3',
+            layerName: 'layer_MapLines_3',
+            pane: 'pane_MapLines_3',
+            onEachFeature: pop_MapLines_3,
+            style: style_MapLines_3_0,
         });
-        bounds_group.addLayer(layer_MapLines_4);
-        map.addLayer(layer_MapLines_4);
-        function pop_FoodProducers_5(feature, layer) {
+        bounds_group.addLayer(layer_MapLines_3);
+        map.addLayer(layer_MapLines_3);
+        function pop_FoodProducers_4(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     if (typeof layer.closePopup == 'function') {
@@ -610,7 +538,7 @@
                         <td colspan="2"><strong>Products</strong><br />' + (feature.properties['Products'] !== null ? autolinker.link(feature.properties['Products'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>Availabe</strong><br />' + (feature.properties['Availabe'] !== null ? autolinker.link(feature.properties['Availabe'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['Available'] !== null ? autolinker.link(feature.properties['Available'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2"><strong>Assistance</strong><br />' + (feature.properties['Assistance'] !== null ? autolinker.link(feature.properties['Assistance'].toLocaleString()) : '') + '</td>\
@@ -622,9 +550,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_FoodProducers_5_0() {
+        function style_FoodProducers_4_0() {
             return {
-                pane: 'pane_FoodProducers_5',
+                pane: 'pane_FoodProducers_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -637,20 +565,20 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_FoodProducers_5');
-        map.getPane('pane_FoodProducers_5').style.zIndex = 405;
-        map.getPane('pane_FoodProducers_5').style['mix-blend-mode'] = 'normal';
-        var layer_FoodProducers_5 = new L.geoJson(json_FoodProducers_5, {
+        map.createPane('pane_FoodProducers_4');
+        map.getPane('pane_FoodProducers_4').style.zIndex = 404;
+        map.getPane('pane_FoodProducers_4').style['mix-blend-mode'] = 'normal';
+        var layer_FoodProducers_4 = new L.geoJson(json_FoodProducers_4, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_FoodProducers_5',
-            layerName: 'layer_FoodProducers_5',
-            pane: 'pane_FoodProducers_5',
-            onEachFeature: pop_FoodProducers_5,
-            style: style_FoodProducers_5_0,
+            dataVar: 'json_FoodProducers_4',
+            layerName: 'layer_FoodProducers_4',
+            pane: 'pane_FoodProducers_4',
+            onEachFeature: pop_FoodProducers_4,
+            style: style_FoodProducers_4_0,
         });
-        bounds_group.addLayer(layer_FoodProducers_5);
-        map.addLayer(layer_FoodProducers_5);
+        bounds_group.addLayer(layer_FoodProducers_4);
+        map.addLayer(layer_FoodProducers_4);
         setBounds();
         </script>
     </body>
