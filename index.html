@@ -206,8 +206,7 @@
                         <td colspan="2">' + (feature.properties['land_area'] !== null ? autolinker.link(feature.properties['land_area'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">landuse</th>\
-                        <td>' + (feature.properties['landuse'] !== null ? autolinker.link(feature.properties['landuse'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['landuse'] !== null ? autolinker.link(feature.properties['landuse'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['leisure'] !== null ? autolinker.link(feature.properties['leisure'].toLocaleString()) : '') + '</td>\
@@ -406,7 +405,7 @@
                         <td colspan="2">' + (feature.properties['z_order'] !== null ? autolinker.link(feature.properties['z_order'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['other_tags'] !== null ? autolinker.link(feature.properties['other_tags'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><strong>other_tags</strong><br />' + (feature.properties['other_tags'] !== null ? autolinker.link(feature.properties['other_tags'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -538,7 +537,7 @@
                         <td colspan="2"><strong>Products</strong><br />' + (feature.properties['Products'] !== null ? autolinker.link(feature.properties['Products'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Available'] !== null ? autolinker.link(feature.properties['Available'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><strong>Available</strong><br />' + (feature.properties['Available'] !== null ? autolinker.link(feature.properties['Available'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2"><strong>Assistance</strong><br />' + (feature.properties['Assistance'] !== null ? autolinker.link(feature.properties['Assistance'].toLocaleString()) : '') + '</td>\
